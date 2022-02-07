@@ -27,7 +27,9 @@ export const Container = styled.SafeAreaView`
 export const HeaderBanner = styled.Image`
   width: 100%;
   height: 300px;
-`
+  margin-top: -8px;
+  margin-bottom: 8px;
+`;
 
 export const HeaderTitle = styled.Text`
   font-size: 20px;
@@ -46,7 +48,7 @@ export const ListView = styled.TouchableHighlight`
   min-height: 64px;
   width: 100%;
   padding: 16px;
-  justify-content: space-around
+  justify-content: space-around;
 `;
 
 export const ListViewHidden = styled.View`
@@ -113,8 +115,23 @@ export const ModalView = styled.View`
   width: 100%
 `;
 
+export const StyledInputName = styled.TextInput`
+  width: 80%;
+  margin: 0 auto;
+  height: 48px;
+  background-color: ${colors.primary};
+  border-bottom-width: 1px;
+  border-bottom-color: ${colors.tertiary};
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: ${colors.tertiary};
+  text-align: center
+`;
+
 export const StyledInput = styled.TextInput`
-  width: 100%;
+  width: 96%;
+  margin: 0 auto;
   height: 48px;
   background-color: ${colors.primary};
   border-bottom-width: 1px;

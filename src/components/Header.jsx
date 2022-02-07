@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { View,  StyleSheet } from 'react-native'
-import ModalName from './ModalName'
 import ModalEditName from './ModalEditName'
 
 //STYLES
@@ -8,6 +7,7 @@ import { HeaderBanner, HeaderTitle, HeaderButton, colors } from '../styles/appSt
 
 //ASYNC STORAGE
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import AppLoading from 'expo-app-loading';
 
 //ICON
 import { MaterialCommunityIcons } from '@expo/vector-icons'
@@ -28,43 +28,67 @@ const stylesHeader = StyleSheet.create({
     }
 })
 
-const Header = () => {
+const Header = ({ tasks, setTasks }) => {
     //Storing name
     const [ name, setName ] = useState('')
 
-    AsyncStorage.getItem("storedName").then(data => {
-        if(data !== null) {
-            setName(JSON.parse(data))
-            setModalOn(false)
-        }
-    }).catch(error => console.log('error on stored name:', error))
+    const loadName = () => {
+        AsyncStorage.getItem("storedName").then(data => {
+            if(data !== null) {
+                setName(JSON.parse(data))
+            }
+        }).catch(error => console.log('error on stored name:', error))
+    }
 
-    const [ modalOn, setModalOn ] = useState(name.length === 0)
+    const [ titleBanner, setTitleBanner ] = useState('')
+    useEffect(() => {
+        if(name.length === 0)
+            setTitleBanner(`Quel est ton prénom ?`)
+        else{
+            if(tasks.length === 0)
+                setTitleBanner(`Bienvenue ${name} !`)
+            else
+                setTitleBanner(`Quoi de neuf, ${name} ?`)
+        }
+    }, [name])
 
     //Edit name
     const [ modalEditOn, setModalEditOn ] = useState(false)
 
+    //CLEAR ALL TASKS
+    const handleClearTasks = () => {
+        AsyncStorage.setItem("storedTasks", JSON.stringify([])).then(() => {
+            setTasks([])
+        }).catch(error => console.log('error:', error))
+    }
+
+    const [ ready, setReady ] = useState(false)
+
     return(
         <>
-            <View style={stylesHeader.containerHeader}>
-                <HeaderBanner source={require('../assets/header_banner.gif')} alt='header_banner' />
-                <View style={stylesHeader.containerText}>
-                    <HeaderTitle onPress={() => setModalEditOn(true)}>
-                        {name.length === 0 ? 'Quoi de neuf ?' : `Quoi de neuf, ${name} ?`}
-                    </HeaderTitle>
-                    <HeaderButton onPress={() => AsyncStorage.removeItem('storedName')}>
-                        <MaterialCommunityIcons name='delete-empty' size={24} color={colors.tertiary} />
-                    </HeaderButton>
-                </View>
-            </View>
-
-            {name.length === 0 ?
-                <ModalName modalOn={modalOn} setModalOn={setModalOn} setName={setName} />
+            {!ready ?
+                <AppLoading
+                    startAsync={loadName}
+                    onFinish={() => setReady(true)} 
+                    onError={console.warn}
+                />
                 :
-                null
-            }
+                <>
+                    <View style={stylesHeader.containerHeader}>
+                        <HeaderBanner source={require('../assets/header_banner.gif')} alt='header_banner' />
+                        <View style={stylesHeader.containerText}>
+                            <HeaderTitle onPress={() => setModalEditOn(true)}>
+                                {titleBanner}
+                            </HeaderTitle>
+                            <HeaderButton onPress={handleClearTasks}>
+                                <MaterialCommunityIcons name='delete-empty' size={24} color={colors.tertiary} />
+                            </HeaderButton>
+                        </View>
+                    </View>
 
-            <ModalEditName modalEditOn={modalEditOn} setModalEditOn={setModalEditOn} name={name} setName={setName} />
+                    <ModalEditName modalEditOn={modalEditOn} setModalEditOn={setModalEditOn} name={name} setName={setName} />
+                </>
+            }
         </>
     )
 }

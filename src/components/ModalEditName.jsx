@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal } from 'react-native'
 
-import { ModalContainer, ModalView, StyledInput, ModalAction, ModalIcon, HeaderTitle, colors } from '../styles/appStyles'
+import { ModalContainer, ModalView, StyledInputName, ModalAction, ModalIcon, HeaderTitle, colors } from '../styles/appStyles'
 import { AntDesign } from '@expo/vector-icons'
 
 //ASYNC STORAGE
@@ -36,15 +36,15 @@ const ModalEditName = ({ modalEditOn, setModalEditOn, name, setName }) => {
                 <ModalContainer>
                     <ModalView>
                         <ModalIcon>
-                            <HeaderTitle style={{ marginTop: 8 }}>Modifier votre prénom</HeaderTitle>
+                            <HeaderTitle style={{ marginTop: 8 }}>{name.length === 0 ? 'Ajouter mon prénom' : 'Modifier mon prénom' }</HeaderTitle>
                         </ModalIcon>
 
                         <ModalAction color={colors.primary} onPress={handleCloseModal}>
                                 <AntDesign name='close' size={16} color={colors.tertiary} />   
                         </ModalAction>
 
-                        <StyledInput
-                            placeholder={name}
+                        <StyledInputName
+                            placeholder={name.length === 0? 'Ton prénom' : name}
                             placeholderTextColor={colors.alternative}
                             selectionColor={colors.secondary}
                             autoFocus={true}
