@@ -1,14 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { View } from 'react-native';
+
+//COMPONENTS
+import Header from './src/components/Header';
+
+//IMPORT STYLES
+import { Container } from './src/styles/appStyles'
 
 //ASYNC STORAGE
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import AppLoading from 'expo-app-loading';
-import Header from './src/components/Header';
 
 export default function App() {
-  const [ ready, setReady ] = useState(false)
 
   //Initial tasks
   const [ tasks, setTasks ] = useState([])
@@ -18,17 +21,26 @@ export default function App() {
       if(data !== null) {
         setTasks(JSON.parse(data))
       }
-    }).catch(error => console.log('error:', error))
+    }).catch(error => console.log('error on stored tasks:', error))
   }
+
+  //Loading App
+  const [ ready, setReady ] = useState(false)
 
   return (
     <>
-        <View>
+      {!ready ?
+        <AppLoading
+          startAsync={loadTasks}
+          onFinish={() => setReady(true)} 
+          onError={console.warn}
+        />
+        :
+        <Container>
           <Header />
-          {/* <Home tasks={tasks} setTasks={setTasks} /> */}
           <StatusBar style='light'/>
-        </View>
+        </Container>
+      }
     </>
-    
   );
 }
