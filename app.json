@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "TouDou List",
+    "name": "TouDou",
     "description" : "Cette application vous permet de centraliser votre liste de tâches à faire en les ajoutant, supprimant et modifiant à tout moment depuis votre téléphone.",
     "slug": "toudou-list-native",
     "version": "1.0.0",
