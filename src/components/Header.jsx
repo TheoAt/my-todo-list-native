@@ -43,7 +43,7 @@ const Header = ({ tasks, setTasks }) => {
     const [ titleBanner, setTitleBanner ] = useState('')
     useEffect(() => {
         if(name.length === 0)
-            setTitleBanner(`Quel est ton prénom ?`)
+            setTitleBanner(`Quel est votre prénom ?`)
         else{
             if(tasks.length === 0)
                 setTitleBanner(`Bienvenue ${name} !`)

@@ -44,7 +44,7 @@ const ModalEditName = ({ modalEditOn, setModalEditOn, name, setName }) => {
                         </ModalAction>
 
                         <StyledInputName
-                            placeholder={name.length === 0? 'Ton prénom' : name}
+                            placeholder={name.length === 0? 'Votre prénom' : name}
                             placeholderTextColor={colors.alternative}
                             selectionColor={colors.secondary}
                             autoFocus={true}

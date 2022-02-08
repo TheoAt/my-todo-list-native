@@ -6,7 +6,7 @@ import ModalTask from './ModalTask'
 //ASYNC STORAGE
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const Home = ({ tasks, setTasks, getDate }) => {
+const Home = ({ tasks, setTasks }) => {
 
     //MODAL & INPUT
     const [ modalOn, setModalOn ] = useState(false)
@@ -50,10 +50,10 @@ const Home = ({ tasks, setTasks, getDate }) => {
                 tasks={tasks}
                 setTasks={setTasks}
                 handleEditingTask={handleEditingTask}
+                handleEditTask={handleEditTask}
             />
             <ModalTask
                 tasks={tasks}
-                getDate={getDate}
                 modalOn={modalOn}
                 setModalOn={setModalOn}
                 taskInputValue={taskInputValue}
