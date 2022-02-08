@@ -69,12 +69,6 @@ export const TaskView = styled.View`
   margin-bottom: 20px
 `;
 
-export const HiddenButton = styled.TouchableOpacity`
-  width: 64px;
-  align-items: center;
-  margin-top: 6px
-`;
-
 export const TodoText = styled.Text`
   font-size: 16px;
   color: ${colors.tertiary};

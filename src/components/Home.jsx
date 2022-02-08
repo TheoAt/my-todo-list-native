@@ -51,6 +51,7 @@ const Home = ({ tasks, setTasks }) => {
                 setTasks={setTasks}
                 handleEditingTask={handleEditingTask}
                 handleEditTask={handleEditTask}
+                modalOn={modalOn}
             />
             <ModalTask
                 tasks={tasks}
