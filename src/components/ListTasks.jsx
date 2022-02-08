@@ -28,7 +28,7 @@ const ListTasks = ({ tasks, setTasks, handleEditingTask, handleEditTask }) => {
                     backgroundColor: `${colors.primary}`,
                     borderTopLeftRadius: 24,
                     borderTopRightRadius: 24,
-                    marginTop: -20,
+                    marginTop: -16,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center'
@@ -43,16 +43,17 @@ const ListTasks = ({ tasks, setTasks, handleEditingTask, handleEditTask }) => {
                     </Text>
                 </View>
                 :
-                <>
-                    <View style={{
-                            flex: 0,
-                            paddingTop: 20,
-                            backgroundColor: `${colors.primary}`,
-                            borderTopLeftRadius: 20,
-                            borderTopRightRadius: 20,
-                            marginTop: -20
-                        }} 
-                    />
+                <View style={{
+                        flex: 1,
+                        paddingTop: 24,
+                        backgroundColor: `${colors.primary}`,
+                        borderTopLeftRadius: 24,
+                        borderTopRightRadius: 24,
+                        marginTop: -16,
+                        display: 'flex',
+                        justifyContent: 'center'                       
+                    }} 
+                >
                     <SwipeListView
                         data={tasks}
                         renderItem={(data) => {
@@ -116,13 +117,13 @@ const ListTasks = ({ tasks, setTasks, handleEditingTask, handleEditTask }) => {
                         showsVerticalScrollIndicator={false}
                         style={{
                             flex: 1,
-                            marginBottom: 20
+                            marginBottom: 24
                         }}
                         onRowOpen={(rowKey) => {
                             handleDeleteTask(rowKey) 
                         }}
                     />
-                </>
+                </View>
             }
         </>
     )

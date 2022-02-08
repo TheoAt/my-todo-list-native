@@ -15,12 +15,13 @@ export const colors = {
   primary: "#0d1117",
   secondary: "#161b22",
   tertiary: "#E6E6E6",
-  alternative: "#999999",
+  alternative: "#999999D6",
+  background: "#233b4f"
 };
 
 export const Container = styled.SafeAreaView`
-  background-color: ${colors.primary};
-  flex: 1;
+  background-color: ${colors.background};
+  flex: 1
 `;
 
 //Header Banner
@@ -28,13 +29,13 @@ export const HeaderBanner = styled.Image`
   width: 100%;
   height: 300px;
   margin-top: -8px;
-  margin-bottom: 8px;
+  margin-bottom: 8px
 `;
 
 export const HeaderTitle = styled.Text`
   font-size: 20px;
   font-weight: bold;
-  color: ${colors.tertiary};
+  color: ${colors.tertiary}
 `;
 
 export const HeaderButton = styled.TouchableOpacity`
@@ -46,7 +47,7 @@ export const HeaderButton = styled.TouchableOpacity`
 export const ListView = styled.TouchableHighlight`
   background-color: ${colors.primary};
   min-height: 48px;
-  width: 100%;
+  width: 100%
 `;
 
 export const ListViewHidden = styled.View`
@@ -54,7 +55,7 @@ export const ListViewHidden = styled.View`
   min-height: 48px;
   width: 100%;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start
 `;
 
 export const TaskView = styled.View`
@@ -78,13 +79,13 @@ export const TodoText = styled.Text`
   font-size: 16px;
   color: ${colors.tertiary};
   margin-left: 42px;
-  margin-right: 48px;
+  margin-right: 48px
 `;
 
 // Text for swiped todo row
 export const SwipedTodoText = styled(TodoText)`
   color: ${colors.alternative};
-  text-decoration: line-through;
+  text-decoration: line-through
 `;
 
 // Modal
@@ -105,13 +106,13 @@ export const ModalContainer = styled.View`
   justify-content: center;
   align-items: center;
   flex: 1;
-  background-color: #0d1117D2;
+  background-color: #0d1117D2
 `;
 
 export const ModalView = styled.View`
   background-color: transparent;
   padding: 16px;
-  width: 100%;
+  width: 100%
 `;
 
 export const StyledInputName = styled.TextInput`
@@ -151,10 +152,10 @@ export const ModalAction = styled.TouchableOpacity`
   align-self: center;
   position: absolute;
   top: 26px;
-  right: 16px;
+  right: 16px
 `;
 
 export const ModalIcon = styled.View`
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 30px
 `;
