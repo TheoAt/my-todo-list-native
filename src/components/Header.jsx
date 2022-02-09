@@ -11,6 +11,7 @@ import AppLoading from 'expo-app-loading';
 
 //ICON
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import ModalDeleteTasks from './ModalDeleteTasks'
 
 const stylesHeader = StyleSheet.create({
     containerHeader : {
@@ -55,14 +56,11 @@ const Header = ({ tasks, setTasks }) => {
     //Edit name
     const [ modalEditOn, setModalEditOn ] = useState(false)
 
-    //CLEAR ALL TASKS
-    const handleClearTasks = () => {
-        AsyncStorage.setItem("storedTasks", JSON.stringify([])).then(() => {
-            setTasks([])
-        }).catch(error => console.log('error:', error))
-    }
-
+    //Loading name
     const [ ready, setReady ] = useState(false)
+
+    //Delete tasks modal
+    const [ modalDeleteOn, setModalDeleteOn ] = useState(false)
 
     return(
         <>
@@ -80,13 +78,14 @@ const Header = ({ tasks, setTasks }) => {
                             <HeaderTitle onPress={() => setModalEditOn(true)}>
                                 {titleBanner}
                             </HeaderTitle>
-                            <HeaderButton onPress={handleClearTasks}>
+                            <HeaderButton onPress={() => tasks.length === 0 ? null : setModalDeleteOn(true)}>
                                 <MaterialCommunityIcons name='delete-empty' size={24} color={colors.tertiary} />
                             </HeaderButton>
                         </View>
                     </View>
 
                     <ModalEditName modalEditOn={modalEditOn} setModalEditOn={setModalEditOn} name={name} setName={setName} />
+                    <ModalDeleteTasks modalDeleteOn={modalDeleteOn} setModalDeleteOn={setModalDeleteOn} tasks={tasks} setTasks={setTasks} />
                 </>
             }
         </>

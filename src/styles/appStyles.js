@@ -149,6 +149,24 @@ export const ModalAction = styled.TouchableOpacity`
   right: 16px
 `;
 
+export const ModalActionDelete = styled.TouchableOpacity`
+  width: 36px;
+  height: 36px;
+  background-color: ${(props) => props.color};
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+`;
+
+export const ModalActionGroup = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto
+  margin-top: 8px;
+  width: 48%
+`;
+
 export const ModalIcon = styled.View`
   align-items: center;
   margin-bottom: 30px
