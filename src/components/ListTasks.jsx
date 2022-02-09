@@ -135,8 +135,7 @@ const ListTasks = ({ tasks, setTasks, handleEditingTask, handleEditTask, modalOn
                         disableLeftSwipe
                         showsVerticalScrollIndicator={false}
                         style={{
-                            flex: 1,
-                            marginBottom: 24
+                            flex: 1
                         }}
                         onRowOpen={(rowKey) => {
                             handleDeleteTask(rowKey) 

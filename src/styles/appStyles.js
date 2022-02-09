@@ -93,7 +93,8 @@ export const ModalButton = styled.TouchableOpacity`
   align-self: center;
   position: absolute;
   bottom: 32px;
-  right: 32px
+  right: 32px;
+  z-index: 1
 `;
 
 export const ModalContainer = styled.View`
@@ -171,3 +172,12 @@ export const ModalIcon = styled.View`
   align-items: center;
   margin-bottom: 30px
 `;
+
+// Footer
+export const FooterComponent = styled.View`
+  background-color: ${colors.primary};
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px
+`

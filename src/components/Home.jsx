@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Header from './Header'
 import ListTasks from './ListTasks'
 import ModalTask from './ModalTask'
+import Footer from './Footer'
 
 //ASYNC STORAGE
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -64,6 +65,7 @@ const Home = ({ tasks, setTasks }) => {
                 setTaskToBeEdited={setTaskToBeEdited}
                 handleEditTask={handleEditTask}
             />
+            <Footer />
         </>
     )
 }

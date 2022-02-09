@@ -25,6 +25,7 @@ const ModalTask = ({ tasks, modalOn, setModalOn, taskInputValue, setTaskInputVal
             })
         }
         setTaskInputValue("")
+        setModalOn(false)
     }
 
     return(
