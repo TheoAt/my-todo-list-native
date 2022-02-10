@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Header from './Header'
+import EnterName from './EnterName'
 import ListTasks from './ListTasks'
 import ModalTask from './modal/ModalTask'
 import Footer from './Footer'
@@ -44,32 +45,47 @@ const Home = ({ tasks, setTasks }) => {
         }).catch(error => console.log('error:', error))
     }
 
+    //Storing name
+    const [ name, setName ] = useState('')
+    const [ isNamed, setIsNamed ] = useState(false)
+    
+    AsyncStorage.getItem("storedName").then(data => {
+        if(data !== null) {
+            setName(JSON.parse(data))
+        }
+    }).catch(error => console.log('error on stored name:', error))
+
     return(
         <>
-            <Header tasks={tasks} setTasks={setTasks} />
+            <Header tasks={tasks} setTasks={setTasks} name={name} setName={setName} isNamed={isNamed} />
 
-            <ListTasks
-                tasks={tasks}
-                setTasks={setTasks}
-                handleEditingTask={handleEditingTask}
-                handleEditTask={handleEditTask}
-                modalOn={modalOn}
-            />
-                    
-            <ModalTask
-                tasks={tasks}
-                modalOn={modalOn}
-                setModalOn={setModalOn}
-                taskInputValue={taskInputValue}
-                setTaskInputValue={setTaskInputValue}
-                handleAddTask={handleAddTask}
-                taskToBeEdited={taskToBeEdited}
-                setTaskToBeEdited={setTaskToBeEdited}
-                handleEditTask={handleEditTask}
-            />
+            {isNamed || name ?
+                <>
+                    <ListTasks
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        handleEditingTask={handleEditingTask}
+                        handleEditTask={handleEditTask}
+                        modalOn={modalOn}
+                    />    
+                    <ModalTask
+                        tasks={tasks}
+                        modalOn={modalOn}
+                        setModalOn={setModalOn}
+                        taskInputValue={taskInputValue}
+                        setTaskInputValue={setTaskInputValue}
+                        handleAddTask={handleAddTask}
+                        taskToBeEdited={taskToBeEdited}
+                        setTaskToBeEdited={setTaskToBeEdited}
+                        handleEditTask={handleEditTask}
+                    />
+                </>
+                :
+                <EnterName setIsNamed={setIsNamed} />
+            }
 
             <Footer />
-        </>
+         </>
     )
 }
 

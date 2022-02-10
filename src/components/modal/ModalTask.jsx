@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from 'react-native'
+import { Modal, Alert } from 'react-native'
 import { ModalButton, ModalContainer, ModalView, StyledInput, ModalAction, ModalIcon, HeaderTitle, colors } from '../../styles/appStyles'
 import { AntDesign } from '@expo/vector-icons'
 
@@ -11,12 +11,17 @@ const ModalTask = ({ tasks, modalOn, setModalOn, taskInputValue, setTaskInputVal
     }
 
     const handleSubmit = () => {
+        setModalOn(false)
         if(!taskToBeEdited) {
-            handleAddTask({
-                title: taskInputValue ? taskInputValue : `Voici la tâche n°${tasks.length !== 0 ? `${parseInt(tasks[0].key) + 1}` : '1'}`,
-                isChecked: false,
-                key: tasks.length !== 0 ? `${parseInt(tasks[0].key) + 1}` : '1'
-            })
+            if(taskInputValue) {
+                handleAddTask({
+                    title: taskInputValue,
+                    isChecked: false,
+                    key: tasks.length !== 0 ? `${parseInt(tasks[0].key) + 1}` : '1'
+                })
+            } else {
+                Alert.alert("Merci d'entrer une tâche", "Sauf si vous n'avez aucune tâche à réaliser bien sur !")
+            }
         } else {
             handleEditTask({
                 title: taskInputValue,
@@ -25,7 +30,6 @@ const ModalTask = ({ tasks, modalOn, setModalOn, taskInputValue, setTaskInputVal
             })
         }
         setTaskInputValue("")
-        setModalOn(false)
     }
 
     return(

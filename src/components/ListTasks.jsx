@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import { ScrollView, View, Text, Dimensions, Animated } from 'react-native'
 import { SwipeListView } from 'react-native-swipe-list-view'
 
@@ -23,8 +23,7 @@ const ListTasks = ({ tasks, setTasks, handleEditingTask, handleEditTask, modalOn
 
     const rowTranslateAnimatedValues = {};
 
-    //CHANGER LONGUEUR TABLEAU !!!!!
-    Array(80)
+    Array(tasks.length + 2)
         .fill('')
         .forEach((_, i) => {
             rowTranslateAnimatedValues[`${i}`] = new Animated.Value(1);
@@ -136,7 +135,7 @@ const ListTasks = ({ tasks, setTasks, handleEditingTask, handleEditTask, modalOn
                         }}>
                             Ajout d'une nouvelle tâche...
                         </Text>
-                        :        
+                        :
                         <Text style={{
                             fontSize: 16,
                             color: `${colors.tertiary}`,
@@ -144,7 +143,7 @@ const ListTasks = ({ tasks, setTasks, handleEditingTask, handleEditTask, modalOn
                             marginBottom: 64
                         }}>
                             Vous n'avez pas de tâches aujourd'hui.
-                        </Text>
+                        </Text>    
                     }
                 </View>
                 :

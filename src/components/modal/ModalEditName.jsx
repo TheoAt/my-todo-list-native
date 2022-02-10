@@ -36,7 +36,7 @@ const ModalEditName = ({ modalEditOn, setModalEditOn, name, setName }) => {
                 <ModalContainer>
                     <ModalView>
                         <ModalIcon>
-                            <HeaderTitle style={{ marginTop: 8 }}>{name.length === 0 ? 'Ajouter mon prénom' : 'Modifier mon prénom' }</HeaderTitle>
+                            <HeaderTitle style={{ marginTop: 8 }}>Modifier mon prénom</HeaderTitle>
                         </ModalIcon>
 
                         <ModalAction color={colors.primary} onPress={handleCloseModal}>
@@ -44,7 +44,7 @@ const ModalEditName = ({ modalEditOn, setModalEditOn, name, setName }) => {
                         </ModalAction>
 
                         <StyledInputName
-                            placeholder={name.length === 0? 'Votre prénom' : name}
+                            placeholder={name}
                             placeholderTextColor={colors.alternative}
                             selectionColor={colors.secondary}
                             autoFocus={true}
