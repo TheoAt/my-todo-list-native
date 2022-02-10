@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Header from './Header'
 import ListTasks from './ListTasks'
-import ModalTask from './ModalTask'
+import ModalTask from './modal/ModalTask'
 import Footer from './Footer'
 
 //ASYNC STORAGE
@@ -47,6 +47,7 @@ const Home = ({ tasks, setTasks }) => {
     return(
         <>
             <Header tasks={tasks} setTasks={setTasks} />
+
             <ListTasks
                 tasks={tasks}
                 setTasks={setTasks}
@@ -54,6 +55,7 @@ const Home = ({ tasks, setTasks }) => {
                 handleEditTask={handleEditTask}
                 modalOn={modalOn}
             />
+                    
             <ModalTask
                 tasks={tasks}
                 modalOn={modalOn}
@@ -65,6 +67,7 @@ const Home = ({ tasks, setTasks }) => {
                 setTaskToBeEdited={setTaskToBeEdited}
                 handleEditTask={handleEditTask}
             />
+
             <Footer />
         </>
     )

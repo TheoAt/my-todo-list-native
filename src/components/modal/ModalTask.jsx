@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal } from 'react-native'
-import { ModalButton, ModalContainer, ModalView, StyledInput, ModalAction, ModalIcon, HeaderTitle, colors } from '../styles/appStyles'
+import { ModalButton, ModalContainer, ModalView, StyledInput, ModalAction, ModalIcon, HeaderTitle, colors } from '../../styles/appStyles'
 import { AntDesign } from '@expo/vector-icons'
 
 const ModalTask = ({ tasks, modalOn, setModalOn, taskInputValue, setTaskInputValue, handleAddTask, taskToBeEdited, setTaskToBeEdited, handleEditTask }) => {

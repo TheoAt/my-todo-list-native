@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View,  StyleSheet } from 'react-native'
-import ModalEditName from './ModalEditName'
+import ModalEditName from './modal/ModalEditName'
+import ModalDeleteTasks from './modal/ModalDeleteTasks'
 
 //STYLES
 import { HeaderBanner, HeaderTitle, HeaderButton, colors } from '../styles/appStyles'
@@ -11,7 +12,6 @@ import AppLoading from 'expo-app-loading';
 
 //ICON
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import ModalDeleteTasks from './ModalDeleteTasks'
 
 const stylesHeader = StyleSheet.create({
     containerHeader : {
@@ -78,9 +78,14 @@ const Header = ({ tasks, setTasks }) => {
                             <HeaderTitle onPress={() => setModalEditOn(true)}>
                                 {titleBanner}
                             </HeaderTitle>
-                            <HeaderButton onPress={() => tasks.length === 0 ? null : setModalDeleteOn(true)}>
-                                <MaterialCommunityIcons name='delete-empty' size={24} color={colors.tertiary} />
-                            </HeaderButton>
+
+                            {name ?
+                                <HeaderButton onPress={() => AsyncStorage.removeItem('storedName')}>
+                                    <MaterialCommunityIcons name='delete-empty' size={24} color={colors.tertiary} />
+                                </HeaderButton>
+                                :
+                                null
+                            }
                         </View>
                     </View>
 

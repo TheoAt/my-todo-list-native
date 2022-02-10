@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal } from 'react-native'
 
-import { ModalContainer, ModalView, ModalActionDelete, ModalActionGroup, ModalIcon, HeaderTitle, colors } from '../styles/appStyles'
+import { ModalContainer, ModalView, ModalActionDelete, ModalActionGroup, ModalIcon, HeaderTitle, colors } from '../../styles/appStyles'
 import { AntDesign } from '@expo/vector-icons'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
