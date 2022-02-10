@@ -46,44 +46,31 @@ export const HeaderButton = styled.TouchableOpacity`
 // List
 export const ListView = styled.TouchableHighlight`
   background-color: ${colors.primary};
-  min-height: 48px;
-  width: 100%
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 4px;
 `;
 
 export const ListViewHidden = styled.View`
-  background-color: ${colors.primary};
-  min-height: 48px;
-  width: 100%;
-  justify-content: center;
-  align-items: flex-start
-`;
-
-export const TaskView = styled.View`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  background-color: transparent;
   align-items: flex-start;
-  margin-top: 16px;
   margin-left: 20px;
-  margin-bottom: 20px
-`;
-
-export const HiddenButton = styled.TouchableOpacity`
-  width: 64px;
-  align-items: center;
-  margin-top: 6px
+  margin-bottom: 20px;
+  margin-top: 4px
 `;
 
 export const TodoText = styled.Text`
   font-size: 16px;
   color: ${colors.tertiary};
-  margin-left: 42px;
-  margin-right: 48px
+  margin-right: 28px;
+  margin-left: 48px;
+  margin-bottom: 4px;
+  margin-top: 4px;
 `;
 
-// Text for swiped todo row
-export const SwipedTodoText = styled(TodoText)`
+// Text for done todo row
+export const DoneTodoText = styled(TodoText)`
   color: ${colors.alternative};
   text-decoration: line-through
 `;
@@ -99,7 +86,8 @@ export const ModalButton = styled.TouchableOpacity`
   align-self: center;
   position: absolute;
   bottom: 32px;
-  right: 32px
+  right: 32px;
+  z-index: 1
 `;
 
 export const ModalContainer = styled.View`
@@ -155,7 +143,34 @@ export const ModalAction = styled.TouchableOpacity`
   right: 16px
 `;
 
+export const ModalActionDelete = styled.TouchableOpacity`
+  width: 36px;
+  height: 36px;
+  background-color: ${(props) => props.color};
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+`;
+
+export const ModalActionGroup = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto
+  margin-top: 8px;
+  width: 48%
+`;
+
 export const ModalIcon = styled.View`
   align-items: center;
   margin-bottom: 30px
 `;
+
+// Footer
+export const FooterComponent = styled.View`
+  background-color: ${colors.primary};
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px
+`
