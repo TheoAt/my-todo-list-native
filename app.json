@@ -2,9 +2,10 @@
   "expo": {
     "name": "TouDou",
     "description" : "Cette application vous permet de centraliser votre liste de tâches à faire en les ajoutant, supprimant et modifiant à tout moment depuis votre téléphone.",
-    "slug": "toudou-list-native",
+    "slug": "taTouDouApp",
     "version": "1.0.0",
     "orientation": "portrait",
+    "platforms": ["ios", "android"],
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -23,12 +24,12 @@
       "buildNumber": "1.0.0"
     },
     "android": {
+      "package": "fr.devtheoat.toudou",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "fr.devtheoat.toudou",
-      "versionCode": 1
+        "backgroundColor": "#0d1117"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
