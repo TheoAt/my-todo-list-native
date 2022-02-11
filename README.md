@@ -6,7 +6,12 @@ The TouDou application will serve as a to-do list with an easy to use interface,
 
 ## :rocket: Install the application
 
-You can clone this Github repository on your computer and start the project in a terminal thanks to the Expo command :
+You can clone this Github repository on your computer and install all packages included in package.json file thanks to the command :
+```
+expo add
+```
+
+Then, you can start the project in a terminal with the Expo command :
 ```
 expo start
 ```
