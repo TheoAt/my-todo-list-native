@@ -45,12 +45,10 @@ const Header = ({ tasks, setTasks, name, setName, isNamed }) => {
                         {!isNamed && !name ?
                             'Bienvenue sur TouDou !'
                             :
-                            `Que faisons-nous ${name} ?`
+                            `Quoi de neuf, ${name} ?`
                         }
                     </HeaderTitle>
 
-                    {/* tasks.length !== 0 ? setModalDeleteOn(true) : null */}
-                    {/* AsyncStorage.removeItem('storedName') */}
                     {isNamed || name ?
                         <HeaderButton onPress={() => tasks.length !== 0 ? setModalDeleteOn(true) : null}>
                             <MaterialCommunityIcons name='delete-empty' size={24} color={colors.tertiary} />
